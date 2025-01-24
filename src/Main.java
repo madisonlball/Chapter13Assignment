@@ -73,8 +73,6 @@ public class Main extends Application
             else
                dormCharges = 0.0;
          }
-         if (mealComboBox.getValue() != null)
-         {
 
             //code for mealComboBox
             if (mealComboBox.getValue() != null) {
@@ -83,8 +81,6 @@ public class Main extends Application
                else if (mealPlan.equals("14 meals per week")) mealCharges = 1100.0;
                else if (mealPlan.equals("Unlimited meals")) mealCharges = 1800.0;
             }
-
-         }
 
          // Get the total charges
          totalCharges = dormCharges + mealCharges;
