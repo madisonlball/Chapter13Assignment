@@ -2,6 +2,13 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
+			"type": "java",
+			"name": "Main",
+			"request": "launch",
+			"mainClass": "Main",
+			"projectName": "Chapter13Assignment_1056cddb"
+		},
+		{
 			"vmArgs": "--module-path \"C:/Users/javafx-sdk-23.0.2/lib\" --add-modules javafx.controls,javafx.fxml",
 			"type": "java",
 			"name": "Launch Current File",
@@ -12,8 +19,7 @@
 			"vmArgs": "--module-path \"C:/Users/javafx-sdk-23.0.2/lib\" --add-modules javafx.controls,javafx.fxml",
 			"type": "java",
 			"name": "Launch App",
-			"request": "launch",
-			//"mainClass": "App"
+			"request": "launch"
 		}
 	]
 }

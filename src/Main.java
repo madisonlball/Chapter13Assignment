@@ -25,21 +25,31 @@ public class Main extends Application
    public void start(Stage primaryStage)
    {
       // Build the Dorm ComboBox.
+      ComboBox<String> dormComboBox = new ComboBox<>();
+      dormComboBox.getItems().addAll("Allen Hall", "Pike Hall", "Farthing Hall", "University Suites");
+      dormComboBox.setPromptText("Select a Dorm");
 
 
       // Label to prompt the user to select a dorm
+      Label dormLabel = new Label("Select a Dorm:");
 
 
       // Build the Meal Plan ComboBox.
+      ComboBox<String> mealComboBox = new ComboBox<>();
+      mealComboBox.getItems().addAll("7 meals per week", "14 meals per week", "Unlimited meals");
+      mealComboBox.setPromptText("Select a Meal Plan");
 
 
       // Label to prompt the user to select a meal plan
+      Label mealLabel = new Label("Select a Meal Plan:");
 
 
       // Create the output label for total cost.
+      Label costOutputLabel = new Label("Total cost: $0.00");
 
 
       // Create the Calculate button.
+      Button calcButton = new Button("Calculate Total");
 
 
       // Register event handler for the button
@@ -63,11 +73,16 @@ public class Main extends Application
             else
                dormCharges = 0.0;
          }
-
          if (mealComboBox.getValue() != null)
          {
 
             //code for mealComboBox
+            if (mealComboBox.getValue() != null) {
+               String mealPlan = mealComboBox.getValue();
+               if (mealPlan.equals("7 meals per week")) mealCharges = 600.0;
+               else if (mealPlan.equals("14 meals per week")) mealCharges = 1100.0;
+               else if (mealPlan.equals("Unlimited meals")) mealCharges = 1800.0;
+            }
 
          }
 
@@ -77,6 +92,13 @@ public class Main extends Application
          // Display the charges.
          costOutputLabel.setText(String.format("%,.2f", totalCharges));
       });
+
+      HBox dormAndMealHBox = new HBox(10, dormLabel, dormComboBox, mealLabel, mealComboBox);
+      dormAndMealHBox.setAlignment(Pos.CENTER);
+
+      HBox costHBox = new HBox(10, costOutputLabel);
+      costHBox.setAlignment(Pos.CENTER);
+
 
       // Put everything into a VBox
       VBox mainVBox = new VBox(10, dormAndMealHBox, costHBox, calcButton);
